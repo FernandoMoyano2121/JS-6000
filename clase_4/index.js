@@ -123,7 +123,7 @@ resta(19, 4); */
 
 suma(7, 10); */
 
-const resta = (a, b) => a - b;
+/* const resta = (a, b) => a - b;
 
 const suma = function (a, b) {
   return a + b;
@@ -142,3 +142,41 @@ console.log(precioProducto2);
 
 const precioProducto3 = calculoIva(resta(30, 10));
 console.log(precioProducto3);
+ */
+
+const aplicarDescuento = (precio, descuento) => {
+  const precioConDescuento = precio - (precio * descuento) / 100;
+  return precioConDescuento;
+};
+
+const calcularImpuestos = (precio) => {
+  precioConImpuestos = precio + precio * 0.21;
+  return precioConImpuestos;
+};
+
+let totalDeProductos = 0;
+let agregar = confirm("Quieres agregar un producto ?");
+
+while (agregar) {
+  let precioDelProducto = parseFloat(
+    prompt("Por Favor Ingresa el precio del producto")
+  );
+
+  if (!isNaN(precioDelProducto) && precioDelProducto > 0) {
+    const precioConIva = calcularImpuestos(precioDelProducto);
+    totalDeProductos += precioConIva;
+    alert("Producto agregado satisfactoriamente");
+    agregar = confirm("Quieres agregar otro producto ?");
+  } else {
+    alert("Precio Invalido");
+  }
+}
+
+if (totalDeProductos > 0) {
+  let descuento = parseFloat(prompt("Por favor ingresa el monto de descuento"));
+
+  const precioFinal = aplicarDescuento(totalDeProductos, descuento);
+  alert(`El monto final de la compra es de ${precioFinal}`);
+} else {
+  alert("no has agregado ningun producto");
+}
