@@ -1,54 +1,68 @@
-/* 
-funtion nombreDeLaFuncion(){
-//codigo que quiero procesar
+/* =====================================
+=               Ejemplo Saludo         =
+===================================== */
 
-}
-*/
+const saludo = "Hola como estás?";
+console.log(saludo);
 
-/* let num1 = 9;
-let num2 = 10;
-
-sumaDeNumeros = num1 + num2;
-console.log(sumaDeNumeros); */
-
-/* function sumaDeNumeros() {
-  let num1 = 9;
-  let num2 = 10;
-
-  sumaDeNumeros = num1 + num2;
-  console.log(sumaDeNumeros);
+function saludar() {
+  console.log("¡Hola estudiantes!");
 }
 
-sumaDeNumeros();
+/* =====================================
+=        Ejemplo Suma básica           =
+===================================== */
 
-sumaDeNumeros()
-/*  */
+let num1 = 9;
+let num2 = 8;
+const resultado = num1 + num2;
+console.log(resultado);
 
-/* function sumarNumeros(num1, num2) {
-  const resultadoDeSuma = num1 + num2;
-  console.log(resultadoDeSuma);
+function sumarNumeros() {
+  let num1 = 7;
+  let num2 = 9;
+  resultado = num1 + num2;
+  console.log(resultado);
+}
+//El resultado es impreso por consola pero nunca es devuelto.
+
+sumarNumeros();
+
+/* Es una mejora comparada con el ejemplo anterior ya que el código 
+solo lo escribo una vez y no necesito volver a escribirlo, solo llamarlo. */
+
+/* =====================================
+=    Suma Básica con parametros        =
+===================================== */
+
+//Con parametros es decir Dinámico
+function sumarNumeros(num1, num2) {
+  const resultadoDeLaSuma = num1 + num2;
+  console.log(resultadoDeLaSuma);
 }
 
-sumarNumeros(9, 7);
-sumarNumeros(10, 20); */
-/* 
+sumarNumeros(9, 8);
+
+//El metodo se ejecuta solo cuando se llama
+
+/* La función puede comportarse como una operación que genera 
+valores (como en las operaciones matemáticas y lógicas previas). 
+
+En el espacio donde se llama a la función se genera un nuevo valor: 
+este valor es el definido por el return de la misma. */
+
 function sumarNumeros(num1, num2) {
   return num1 + num2;
 }
 
-let resultadoDeMiSuma = sumarNumeros(6, 9);
-console.log(resultadoDeMiSuma);
+let resultadoDeLaSuma = sumarNumeros(5, 9);
+console.log(resultadoDeLaSuma);
 
-function saludar(mensaje) {
-  console.log(`Hola ${mensaje}`);
-}
+/* =====================================
+=        Ejemplo Calculadorea          =
+===================================== */
 
-saludar("como estas?");
-
-saludar("lwjfwaklf");
- */
-
-/* function calculadora(primerNumero, segundoNumero, operacion) {
+function calculadora(primerNumero, segundoNumero, operacion) {
   switch (operacion) {
     case "+":
       return primerNumero + segundoNumero;
@@ -67,116 +81,156 @@ saludar("lwjfwaklf");
   }
 }
 
-console.log(calculadora(10, 9, "/"));
- */
+console.log(calculadora(10, 5, "*"));
 
-//var variable = 9; //variable de alcance global
+/* =====================================
+=          Scope Global                =
+===================================== */
 
-/* let resultado = 0;
+let resultadoDeSuma = 0;
 
 function sumar(primerNumero, segundoNumero) {
-  resultado = primerNumero + segundoNumero;
+  resultadoDeSuma = primerNumero + segundoNumero;
 }
 
-sumar(5, 7);
+sumar(5, 6);
+
+//Se puede acceder a la variable resultado porque es global
+console.log(resultadoDeSuma);
+/* En este ejemplo puedo hacer referencia a resultado desde 
+cualquier parte de mi programa. */
+
+/* =====================================
+=               Scope Local             =
+===================================== */
+
+function sumar(primerNumero, segundoNumero) {
+  let resultado = primerNumero + segundoNumero;
+}
+
+//No se puede acceder a la variable resultado fuera del bloque
 console.log(resultado);
- */
 
-/* function sumar(primerNumero, segundoNumero) {
-  let resultado = primerNumero - segundoNumero;
-}
+/* =====================================
+=      Variables locales y globales     =
+===================================== */
 
-console.log(resultado); */
-
-/* let nombre = "Fernando";
+let nombre = "John Doe"; // variable global
 
 function saludar() {
-  let nombre = "Juan";
+  let nombre = "Juan Coder"; // variable local
   console.log(nombre);
 }
 
-console.log(nombre);
+//Accede a nombre global
+console.log(nombre); // → “John Doe”
+//Accede a nombre local
+saludar(); // → “Juan Coder”**
 
-saludar();
- */
+/* ===============================================
+= VAriables con mismo nombre en scopes diferentes =
+=============================================== */
 
-/* function sumar(a, b) {
-  let resultado = a + b;
-  return console.log(resultado);
+function sumar(num1, num2) {
+  let resultado = num1 + num2;
+  return resultado;
 }
 
-function resta(a, b) {
-  let resultado = a - b;
-  return console.log(resultado);
+function restar(num1, num2) {
+  let resultado = num1 - num2;
+  return resultado;
 }
 
-sumar(9, 8);
-resta(19, 4); */
-
-/* function suma(){
-
-} */
-
-/* const suma = function (a, b) {
-  return console.log(a + b);
-};
-
-suma(7, 10); */
-
-/* const resta = (a, b) => a - b;
+/* =====================================
+=               Funciones anonimas      =
+===================================== */
+/* Una función anónima es una función que se define sin 
+nombre y se utiliza para ser pasada como parámetro o asignada 
+a una variable. En el caso de asignarla a una variable, 
+pueden llamar usando el identificador de la variable declarada. */
 
 const suma = function (a, b) {
   return a + b;
 };
+
+console.log(suma(4, 9));
+
+/* =====================================
+=       Fucniones flecha                =
+===================================== */
+
+const suma1 = (a, b) => {
+  return a + b;
+};
+
+/* Si es una función de una sola línea con retorno
+podemos evitar escribir el cuerpo. */
+
+const resta1 = (a, b) => a - b;
+console.log(suma1(15, 20));
+console.log(resta1(20, 5));
+
+/* =====================================
+=        Ejemplo calculo IVA           =
+===================================== */
+
+//const suma = (a, b) => a + b;
+
+const suma2 = (a, b) => {
+  return a + b;
+};
+
+const resta2 = (a, b) => a - b;
 
 const calculoIva = (precio) => {
   const precioConIva = precio * 0.21;
   return precioConIva;
 };
 
-const precioProducto1 = calculoIva(30000);
-console.log(precioProducto1);
+let nuevoProducto = calculoIva(suma2(56, 4));
+let nuevoProducto1 = calculoIva(resta2(134, 9));
 
-const precioProducto2 = calculoIva(suma(10, 20));
-console.log(precioProducto2);
-
-const precioProducto3 = calculoIva(resta(30, 10));
-console.log(precioProducto3);
- */
+/* =====================================
+=       Ejemplo IVA + Descuento       =
+===================================== */
 
 const aplicarDescuento = (precio, descuento) => {
-  const precioConDescuento = precio - (precio * descuento) / 100;
+  precioConDescuento = precio - (precio * descuento) / 100;
   return precioConDescuento;
 };
 
 const calcularImpuestos = (precio) => {
   precioConImpuestos = precio + precio * 0.21;
+  console.log(precioConImpuestos);
   return precioConImpuestos;
 };
 
 let totalDeProductos = 0;
-let agregar = confirm("Quieres agregar un producto ?");
+let agregar = confirm("quieres agregar un producto");
 
 while (agregar) {
   let precioDelProducto = parseFloat(
-    prompt("Por Favor Ingresa el precio del producto")
+    prompt("Por favor ingresa el precio del producto")
   );
 
   if (!isNaN(precioDelProducto) && precioDelProducto > 0) {
     const precioConIva = calcularImpuestos(precioDelProducto);
     totalDeProductos += precioConIva;
-    alert("Producto agregado satisfactoriamente");
-    agregar = confirm("Quieres agregar otro producto ?");
+    alert("producto agregado satisfactoriamente");
+
+    agregar = confirm("Quires agregar otro producto?");
   } else {
-    alert("Precio Invalido");
+    alert("Precio invalido");
   }
 }
 
 if (totalDeProductos > 0) {
-  let descuento = parseFloat(prompt("Por favor ingresa el monto de descuento"));
+  let descuento = parseFloat(
+    prompt("por favor ingresa el porcentaje de descuento")
+  );
 
   const precioFinal = aplicarDescuento(totalDeProductos, descuento);
-  alert(`El monto final de la compra es de ${precioFinal}`);
+  alert(`El precio final de tu compra es : ${precioFinal}`);
 } else {
-  alert("no has agregado ningun producto");
+  alert("No has agregado ningun producto");
 }
