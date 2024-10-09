@@ -2,6 +2,12 @@ let nombre = "Fernando";
 let edad = 32;
 let direccion = "Córdoba";
 
+const persona = {
+  nombre: "Fernando",
+  edad: 32,
+  direccion: "Córdoba",
+};
+
 //Acceder a propiedades con nomenclatura del punto
 console.log(persona.nombre);
 //Acceder a propiedades con nomenclatura  corchetes
@@ -33,12 +39,6 @@ let miNombre3 = miNombre.toUpperCase();
 console.log(miNombre1);
 
 console.log(miNombre1.length);
-
-const persona = {
-  nombre: "Fernando",
-  edad: 32,
-  direccion: "Córdoba",
-};
 
 //in
 console.log("calle" in persona);
