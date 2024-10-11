@@ -57,6 +57,7 @@ for (let i = 0; i < numeros2.length; i++) {
 /* =====================================
 =            Metodos- push              =
 ===================================== */
+
 //El método push () agrega elementos al final del array.
 
 const miArray1 = ["marca", 3, "palabra"];
