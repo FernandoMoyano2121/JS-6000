@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ===================================
+   =          addEventListener            =
+   ==================================== -->
+
+    <button id="botonComprar">comprar</button>
+    <br /><br /><br />
+    <!-- ===================================
+    =               onclick                =
+    ==================================== -->
+
+    <button id="boton">comprar</button>
+    <br /><br /><br />
+    <!-- ===================================
+    =         onclick en HTML               =
+    ==================================== -->
+
+    <input type="button" value="CLICK2" onclick="alert('Respuesta 3');" />
+    <br /><br /><br />
+    <!-- ===================================
+    =        mouseDown | mouseup           =
+    ==================================== -->
+
+    <button id="btnMouseDownUp">Haz clic y suelta</button>
+    <br /><br /><br />
+
+    <!-- ===================================
+    =          mouseover | mouseout         =
+    ==================================== -->
+
+    <div
+      id="areaMouseOverOut"
+      style="width: 300px; height: 300px; background-color: lightgreen">
+      Pasa el mouse por encima
+    </div>
+    <br /><br /><br />
+
+    <!-- ===================================
+    =               mousemove                =
+    ==================================== -->
+
+    <div
+      id="areaMouseMove"
+      style="width: 300px; height: 300px; background-color: lightblue">
+      Mueve el mouse dentro de esta área
+    </div>
+    <br /><br /><br />
+
+    <!-- ===================================
+    =            keydown | keyup           =
+    ==================================== -->
+    <input type="text" id="inputTeclado" placeholder="Escribe algo" />
+    <br /><br /><br />
+
+    <!-- ===================================
+    =               change                =
+    ==================================== -->
+
+    <label for="selectorColor">Elige un color:</label>
+    <select id="selectorColor">
+      <option value="rojo">Rojo</option>
+      <option value="azul">Azul</option>
+      <option value="verde">Verde</option>
+    </select>
+    <br /><br /><br />
+
+    <!-- ===================================
+    =               submit                =
+    ==================================== -->
+
+    <!-- Formulario simple -->
+    <form id="miFormulario">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+      <br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <br /><br />
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Mensaje de resultado -->
+    <div id="mensaje"></div>
+    <br /><br /><br />
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <!-- Nombre -->
+      <label for="nombreTarea">Ingresa la tarea</label>
+      <input type="text" id="nombreTarea" placeholder="Nombre de la tarea" />
+    </div>
+
+    <!-- Prioridad -->
+    <div>
+      <label for="prioridadTarea">Selecciona la prioridad</label>
+      <select id="prioridadTarea">
+        <option value="Alta">Alta</option>
+        <option value="Media">Media</option>
+        <option value="Baja">Baja</option>
+      </select>
+    </div>
+
+    <!-- Vencimiento -->
+    <div>
+      <label for="fechaVencimiento">Fecha de vencimiento:</label>
+      <input type="date" id="fechaVencimiento" />
+    </div>
+
+    <!-- Agregar -->
+    <button id="agregarTarea">Agregar</button>
+
+    <div>
+      <h2>Listado de tareas</h2>
+      <ul id="listadoTareas"></ul>
+
+      <span id="tareasPendientes"></span>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
