@@ -5,29 +5,7 @@ const agregarTarea = document.getElementById("agregarTarea");
 const listadoTareas = document.getElementById("listadoTareas");
 const tareasPendientes = document.getElementById("tareasPendientes");
 
-const tareas = [
-  {
-    id: 1,
-    nombre: "Hacer Compras",
-    prioridad: "Baja",
-    completada: false,
-    vencimiento: "2024-09-23",
-  },
-  {
-    id: 2,
-    nombre: "Estudiar",
-    prioridad: "Baja",
-    completada: false,
-    vencimiento: "2024-09-23",
-  },
-  {
-    id: 3,
-    nombre: "Lavar ropa",
-    prioridad: "Baja",
-    completada: false,
-    vencimiento: "2024-09-23",
-  },
-];
+const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
 
 let proximoId = 4;
 
@@ -36,16 +14,29 @@ const renderizarTareas = () => {
 
   tareas.forEach((tarea) => {
     const itemTarea = document.createElement("li");
+    itemTarea.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.checked = tarea.completada;
+    checkbox.addEventListener("change", () =>
+      marcarComoCompletada(checkbox, tarea.id)
+    );
 
     const infoTarea = document.createElement("span");
-
-    infoTarea.textContent = `Tarea: ${tarea.nombre}| Prioridad | ${tarea.prioridad} | Vencimiento : ${tarea.vencimiento}`;
+    infoTarea.innerHTML = `
+     <strong> ${tarea.nombre}</strong>
+     Prioridad: ${tarea.prioridad}
+     <strong>Vencimiento : ${tarea.vencimiento}</strong>`;
 
     const botonEliminar = document.createElement("button");
     botonEliminar.textContent = "Eliminar";
+    botonEliminar.classList.add("btn", "btn-danger");
     botonEliminar.addEventListener("click", () => eliminarTarea(tarea.id));
 
     itemTarea.append(checkbox);
@@ -53,6 +44,7 @@ const renderizarTareas = () => {
     itemTarea.append(botonEliminar);
     listadoTareas.append(itemTarea);
   });
+  mostrarTareasPendientes();
 };
 
 const agregarTareas = () => {
@@ -68,6 +60,8 @@ const agregarTareas = () => {
       vencimiento: vencimiento,
       completada: false,
     });
+
+    localStorage.setItem("tareas", JSON.stringify(tareas));
     renderizarTareas();
   } else {
     alert("Rellena todos los campos");
@@ -83,8 +77,20 @@ const eliminarTarea = (id) => {
   }
 };
 
-const mostrarTareasPendientes = () => {};
-const marcarComoCompletada = () => {};
+const mostrarTareasPendientes = () => {
+  const pendientes = tareas.filter((tarea) => !tarea.completada).length;
+  tareasPendientes.textContent = `Tareas pendientes: ${pendientes}`;
+};
+
+const marcarComoCompletada = (checkbox, id) => {
+  const tarea = tareas.find((tarea) => tarea.id === id);
+
+  if (tarea) {
+    tarea.completada = checkbox.checked;
+    localStorage.setItem("tareas", JSON.stringify(tareas));
+    renderizarTareas();
+  }
+};
 
 renderizarTareas();
 agregarTarea.addEventListener("click", agregarTareas);
