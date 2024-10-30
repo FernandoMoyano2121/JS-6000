@@ -60,8 +60,8 @@ const area1 = document.getElementById("areaMouseMove");
 
 // Detecta cuando el mouse se mueve dentro del área
 
-area1.addEventListener("mousemove", (event) => {
-  console.log(`El mouse se mueve en: X=${event.clientX}, Y=${event.clientY}`);
+area1.addEventListener("mousemove", ({ clientX, clientY }) => {
+  console.log(`El mouse se mueve en: X=${clientX}, Y=${clientY}`);
 });
 
 /* =====================================

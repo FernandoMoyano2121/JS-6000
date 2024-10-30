@@ -110,7 +110,7 @@ localStorage.setItem("clave4", { producto: "Arroz", precio: 2345 });
 console.log(localStorage.getItem("clave4"));
 
 /* =====================================
-=               JSON                =
+=               JSON                   =
 ===================================== */
 //JSON.stringify
 //subiendo objetos al local storage en formato JSON
