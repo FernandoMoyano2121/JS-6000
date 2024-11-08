@@ -87,15 +87,14 @@ export const updateCartUi = () => {
     cartItem.setAttribute("data-id", item.id);
 
     cartItem.innerHTML = `
-     <div class="cart__item">
+     
         <div class="cart__item-title">${item.title}</div>
         <div>${item.price}</div>
         <div>
           <button class="cart__increase">+</button>
           <button class="cart__decrease">-</button>
           <button class="cart__remove">Eliminar</button>
-        </div>
-      </div>
+        </div>    
     
     `;
 

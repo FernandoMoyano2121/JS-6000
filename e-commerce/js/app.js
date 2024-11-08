@@ -1,4 +1,4 @@
-import { addToCart, createProduct } from "./cart.js";
+import { addToCart, createProduct, removeFromCart } from "./cart.js";
 import { renderProducts, updateCartUi } from "./ui.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,3 +32,16 @@ document.getElementById("productList").addEventListener("click", (event) => {
     updateCartUi();
   }
 });
+
+document
+  .querySelector(".cart__container")
+  .addEventListener("click", (event) => {
+    if (event.target.classList.contains("cart__remove")) {
+      const productId = event.target
+        .closest(".cart__item")
+        .getAttribute("data-id");
+
+      removeFromCart(productId);
+      updateCartUi();
+    }
+  });

@@ -1,4 +1,4 @@
-const cartItems = [];
+let cartItems = [];
 
 export const createProduct = (id, title, price) => ({ id, title, price });
 
@@ -14,4 +14,8 @@ export const addToCart = (product, quantity) => {
   } else {
     cartItems.push({ ...product, quantity });
   }
+};
+
+export const removeFromCart = (id) => {
+  cartItems = cartItems.filter((item) => item.id !== id);
 };
